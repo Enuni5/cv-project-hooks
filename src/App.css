@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+.CV {
+  width: 80vw;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.personal-info {
+  display: flex;
+  background-color: rgba(1, 184, 255);
+  height: 30vh;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.name-position {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-right: 5vw;
 }
 
-.App-link {
-  color: #61dafb;
+.position {
+  text-align: center;
+  margin: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-data {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+}
+
+.profilePic {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(auto-fill, auto);
+  background-color: lightgrey;
+}
+.experience-title {
+  margin-left: 10%;
+}
+
+.educational-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.educational-info > p {
+  margin: 0px;
+  height: 1.5rem;
+}
+
+.educational-info :first-child {
+  margin-top: 20px;
+}
+
+.educational-info p:nth-child(3n + 3) {
+  margin-bottom: 50px;
+}
+
+.professional-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.professional-info :first-child {
+  margin-top: 20px;
+}
+
+.professional-info > p {
+  margin: 0px;
+  height: 1.5rem;
+}
+
+.professional-info p:nth-child(4n + 4) {
+  margin-bottom: 50px;
 }
