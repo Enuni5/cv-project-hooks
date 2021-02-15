@@ -1,22 +1,53 @@
-import React, {useState} from "react";
+import { useState, useEffect, useRef } from 'react';
 
-const useForm = (callback) => {
-const [inputs, setInputs] = useState({});
+const useForm = ({ initialValues, onSubmit }) => {
+  const [values, setValues] = useState(initialValues || {});
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  const [onSubmitting, setOnSubmitting] = useState(false);
+  const [onBlur, setOnBlur] = useState(false);
 
-const handleSubmit = (event) => {
-    if (event) {
-        event.preventDefault();
-    } 
-    callback();
-} 
-const handleInputChange = (event) => {
+  const formRendered = useRef(true);
+
+  useEffect(() => {
+    if (formRendered.current) {
+      setValues(initialValues);
+      setErrors({});
+      setTouched({});
+      setOnSubmitting(false);
+      setOnBlur(false);
+    }
+    formRendered.current = false;
+  }, [initialValues]);
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.taget.value;
+    console.log(name, value);
     event.persist();
-    setInputs(inputs => ({...inputs, [event.target.name]: event.target.value});
-} 
-return {
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleBlur = (event) => {
+    const name = event.target.name;
+    setTouched({ ...touched, [name]: true });
+    setErrors({ ...errors });
+  };
+
+  const handleSubmit = (event) => {
+    if (event) event.preventDefault();
+    setErrors({ ...errors });
+    onSubmit({ values, errors });
+  };
+
+  return {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
     handleSubmit,
-    handleInputChange,
-    inputs};
+  };
 };
 
-export default useForm; 
+export default useForm;

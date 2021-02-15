@@ -18,37 +18,37 @@ function Educational(props) {
         className='educational-form'
         onSubmit={handleSubmit}
       >
-        <label htmlFor='educationalSchool'>
+        <label htmlFor='school'>
           School:
           <input
             type='text'
             className='educationalSchool'
-            name='educationalSchool'
-            value={educational.educationalSchool}
+            name='school'
+            value={educational.school}
             onChange={handleChange}
           ></input>
           <br></br>
         </label>
 
-        <label htmlFor='educationalStudyTitle'>
+        <label htmlFor='studyTitle'>
           Title / Degree:
           <input
             type='text'
             className='educationalStudyTitle'
-            name='educationalStudyTitle'
-            value={educational.educationalStudyTitle}
+            name='studyTitle'
+            value={educational.studyTitle}
             onChange={handleChange}
           ></input>
           <br></br>
         </label>
 
-        <label htmlFor='educationalStudyDate'>
+        <label htmlFor='studyDates'>
           Title Date:
           <input
             type='text'
-            className=''
-            name='educationalStudyDate'
-            value={educational.educationalStudyDate}
+            className='educationalStudyDate'
+            name='studyDates'
+            value={educational.studyDates}
             onChange={handleChange}
           ></input>
           <br></br>

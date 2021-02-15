@@ -19,49 +19,49 @@ function Professional(props) {
         className='professional-form'
         onSubmit={handleSubmit}
       >
-        <label htmlFor='professionalCompany'>
+        <label htmlFor='company'>
           Company:
           <input
             type='text'
             className='professionalCompany'
-            name='professionalCompany'
-            value={professional.professionalCompany}
+            name='company'
+            value={professional.company}
             onChange={handleChange}
           ></input>
           <br></br>
         </label>
 
-        <label htmlFor='professionalPosition'>
+        <label htmlFor='position'>
           Position:
           <input
             type='text'
             className='professionalPosition'
-            name='professionalPosition'
-            value={professional.professionalPosition}
+            name='position'
+            value={professional.position}
             onChange={handleChange}
           ></input>
           <br></br>
         </label>
 
-        <label htmlFor='professionalTasks'>
+        <label htmlFor='tasks'>
           Tasks asigned:
           <input
             type='textarea'
-            className=''
-            name='professionalTasks'
-            value={professional.professionalTasks}
+            className='professionalTasks'
+            name='tasks'
+            value={professional.tasks}
             onChange={handleChange}
           ></input>
           <br></br>
         </label>
 
-        <label htmlFor='professionalDates'>
+        <label htmlFor='dates'>
           Dates:
           <input
             type='text'
             className='professionalDates'
-            name='professionalDates'
-            value={professional.professionalDates}
+            name='dates'
+            value={professional.dates}
             onChange={handleChange}
           ></input>
           <br></br>

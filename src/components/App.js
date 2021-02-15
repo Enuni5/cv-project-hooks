@@ -4,6 +4,7 @@ import profilepic from '/Users/Emilio/projects/cv-project-hooks/src/ben-sweet-2L
 import Personal from './personal';
 import Educational from './educational';
 import Professional from './professional';
+import _ from 'lodash';
 
 function App() {
   const [personal, setPersonal] = useState({
@@ -30,14 +31,39 @@ function App() {
   function handleChange(e) {
     const value = e.target.value;
     const name = e.target.name;
-    console.log(value, name, e);
+    console.log(e);
+    if (e.target.form.id === 'personal') {
+      setPersonal({ ...personal, [name]: value });
+    } else if (e.target.form.id === 'educational') {
+      setEducational({ ...educational, [name]: [value] });
+      console.log(educational);
+    } else if (e.target.form.id === 'professional') {
+      setProfessional({ ...professional, [name]: [value] });
+      console.log(professional);
+    } else console.log('pfff');
+  }
+
+  function handleSubmit(e) {
+    console.log(e);
   }
 
   return (
     <div className='App'>
-      <Personal personalData={personal} onChange={handleChange} />
-      <Educational educationalData={educational} />
-      <Professional professionalData={professional} />
+      <Personal
+        personalData={personal}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
+      <Educational
+        educationalData={educational}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
+      <Professional
+        professionalData={professional}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
       <div className='CV'>
         <div className='personal-info'>
           <div className='name-position'>
